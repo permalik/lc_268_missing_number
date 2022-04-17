@@ -20,7 +20,27 @@ const missingNumber = function (array: any) {
 
   let sortedArray = bubbleSort(array);
 
-  let largestValue;
+  let largestValue = sortedArray[sortedArray.length - 1];
+
+  let topOfRange = largestValue;
+
+  let sumOfRange: number = 0;
+
+  for (let i = 0; i < topOfRange; i++) {
+    sumOfRange += largestValue;
+    largestValue--;
+  }
+
+  const sumOfOriginalArray = array.reduce(
+    (partialSum: any, a: any) => partialSum + a,
+    0
+  );
+
+  let solution = sumOfRange - sumOfOriginalArray;
+
+  console.log(solution);
 };
+
+let nums = [9, 6, 4, 2, 3, 5, 7, 0, 1];
 
 missingNumber(nums);
